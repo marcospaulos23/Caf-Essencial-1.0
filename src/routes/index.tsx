@@ -162,7 +162,10 @@ function Index() {
       <Navbar />
 
       {/* HERO */}
-      <section className="relative h-[100dvh] min-h-[640px] w-full overflow-hidden">
+      <section 
+        className="sticky top-0 z-0 h-[100dvh] w-full overflow-hidden"
+        style={{ transform: "translate3d(0,0,0)", willChange: "transform" }}
+      >
         <img
           src={heroImg}
           alt="Interior da cafeteria Café Essencial"
@@ -220,7 +223,7 @@ function Index() {
         </div>
       </section>
 
-      <main>
+      <main className="relative z-20 bg-[color:var(--color-cream-soft)] shadow-[0_-12px_40px_rgba(0,0,0,0.25)]">
         {/* SOBRE */}
         <section id="sobre" className="py-24 sm:py-32">
           <div className="mx-auto grid max-w-6xl gap-14 px-6 lg:grid-cols-2 lg:items-center">

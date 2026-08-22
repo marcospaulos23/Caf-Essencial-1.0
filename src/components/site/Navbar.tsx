@@ -31,21 +31,12 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="#top" className="flex items-center gap-2">
-          <span
-            className={`grid h-10 w-10 place-items-center rounded-full text-lg font-display font-semibold transition-colors ${
-              scrolled ? "bg-primary text-primary-foreground" : "bg-white/90 text-primary"
-            }`}
-          >
-            C
-          </span>
-          <span
-            className={`font-display text-lg leading-tight transition-colors ${
-              scrolled ? "text-primary" : "text-white drop-shadow"
-            }`}
-          >
-            Café Essencial
-          </span>
+        <a href="#top" className="flex items-center">
+          <img
+            src="/logo.png"
+            alt="Logo Café Essencial"
+            className="h-12 w-auto object-contain bg-white/95 backdrop-blur px-3 py-1.5 rounded-xl shadow-sm transition-transform hover:scale-105"
+          />
         </a>
 
         <ul className="hidden items-center gap-7 lg:flex">
