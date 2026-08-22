@@ -583,13 +583,15 @@ function Index() {
       </main>
 
       {/* FOOTER */}
-      <footer className="bg-[color:var(--color-coffee-dark)] text-white/80">
+      <footer className="relative z-20 bg-coffee-dark text-white/80">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-[color:var(--color-cream)] font-display text-primary">
-                C
-              </span>
+              <img
+                src="/favicon.ico"
+                alt="Logo Café Essencial"
+                className="h-11 w-11 rounded-full bg-white p-0.5 object-contain shadow-sm"
+              />
               <span className="font-display text-xl text-white">Café Essencial</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/60">

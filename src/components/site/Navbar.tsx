@@ -14,6 +14,7 @@ const links = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [showLogoModal, setShowLogoModal] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -31,13 +32,27 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="#top" className="flex items-center">
-          <img
-            src="/logo.png"
-            alt="Logo Café Essencial"
-            className="h-12 w-auto object-contain bg-white/95 backdrop-blur px-3 py-1.5 rounded-xl shadow-sm transition-transform hover:scale-105"
-          />
-        </a>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setShowLogoModal(true)}
+            className="focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full"
+            aria-label="Ampliar logo"
+          >
+            <img
+              src="/favicon.ico"
+              alt="Logo Café Essencial"
+              className="h-11 w-11 rounded-full bg-white p-0.5 object-contain shadow-sm transition-transform hover:scale-105"
+            />
+          </button>
+          <a
+            href="#top"
+            className={`font-display text-lg leading-tight transition-colors hover:opacity-80 ${
+              scrolled ? "text-primary" : "text-white drop-shadow"
+            }`}
+          >
+            Café Essencial
+          </a>
+        </div>
 
         <ul className="hidden items-center gap-7 lg:flex">
           {links.map((l) => (
@@ -97,6 +112,36 @@ export function Navbar() {
               </a>
             </li>
           </ul>
+        </div>
+      )}
+
+      {/* Modal da Logo Expandida */}
+      {showLogoModal && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity"
+          onClick={() => setShowLogoModal(false)}
+        >
+          <div className="relative flex flex-col items-center animate-fade-up">
+            <button 
+              className="absolute -right-2 -top-2 rounded-full bg-white p-1.5 text-primary shadow-xl hover:bg-[color:var(--color-cream)] focus:outline-none transition-transform hover:scale-105"
+              onClick={() => setShowLogoModal(false)}
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <img 
+              src="/favicon.ico" 
+              alt="Logo Café Essencial Ampliada" 
+              className="h-64 w-64 rounded-full bg-white p-4 shadow-2xl object-contain"
+            />
+            <div className="mt-6 text-center text-white drop-shadow-lg">
+              <h2 className="font-display text-3xl font-semibold tracking-wide">
+                Café Essencial
+              </h2>
+              <p className="mt-3 max-w-md text-base leading-relaxed text-white/95">
+                A melhor cafeteria da cidade. Um espaço acolhedor pensado para quem ama cafés especiais, tortas artesanais e momentos inesquecíveis.
+              </p>
+            </div>
+          </div>
         </div>
       )}
     </header>
